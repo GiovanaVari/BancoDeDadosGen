@@ -71,7 +71,7 @@ select * from tb_produtos where preco > 50 order by preco;
 -- Mostrando produtos com preço entre 5 e 60 em ordem crescente de acordo com o preço
 select * from tb_produtos where preco between 5 and 60  order by preco;
 
--- Mostra as produtos com m no nome
+-- Mostra as produtos com c no nome
 select * from tb_produtos where nome like "%c%";
 
 -- Mostra todos os produtos e suas informações das duas tabelas
