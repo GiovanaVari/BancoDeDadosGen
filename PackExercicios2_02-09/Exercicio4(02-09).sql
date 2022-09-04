@@ -40,7 +40,7 @@ insert into tb_categoria(tipo, promo) values
 ("Aves","10%"),
 ("Frutos do mar",""),
 ("Suina","12%"),
-("Bovina","6%"),
+("Bovina","5%"),
 ("Outros","");
 
 -- Criando a tabela produtos
@@ -48,7 +48,7 @@ create table tb_produtos(
 id bigint auto_increment,
 nome varchar(255) not null,
 validade date not null,
-quantidade decimal(5,3) null,
+quantidade decimal(6,3) null,
 preco decimal(5,2),
 tipo_id bigint,
 primary key (id),
@@ -57,14 +57,14 @@ foreign key (tipo_id) references tb_categoria(id)
 
 -- Inserindo dados na tabela produtos
 insert into tb_produtos(tipo_id, nome, validade, quantidade, preco) values
-(4, "Lagarto","2022-09-22", 1.20, 55.20),
-(3, "Bisteca","2022-09-15", 2.01, 28.14),
-(5, "Carvão 3Kg","2025-01-05", 1, 18.00),
-(1, "Peito","2022-09-16", 3, 60.00),
-(4, "Patinho","2022-10-30", 1.54, 61.60),
-(3, "Barriga","2022-09-10", 1.0, 19.00),
-(2, "Lagosta (uni)","2022-09-22", 2, 175.96),
-(1, "Coxa","2022-09-14", 3.50, 38.50);
+(4, "Lagarto","2022-09-22", 41.20, 56.20),
+(3, "Bisteca","2022-09-15", 23.01, 12.14),
+(5, "Carvão 3Kg","2025-01-05", 100, 18.00),
+(1, "Peito","2022-09-16", 67.8, 21.00),
+(4, "Patinho","2022-10-30", 50.54, 45.60),
+(3, "Barriga","2022-09-10", 20.8, 19.00),
+(2, "Lagosta (uni)","2022-09-22", 10, 97.96),
+(1, "Coxa","2022-09-14", 30.5, 11.50);
 
 -- Mostrando produtos com preço maior que 50 em ordem crescente de acordo com o preço
 select * from tb_produtos where preco > 50 order by preco;
@@ -85,3 +85,4 @@ select tb_categoria.tipo, tb_categoria.promo, nome, validade, quantidade, preco
 from tb_produtos inner join tb_categoria
 on tb_categoria.id = tb_produtos.tipo_id
 where tipo = "Frutos do mar";
+
